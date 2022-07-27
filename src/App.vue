@@ -1,17 +1,20 @@
 <template>
   <NavBar></NavBar>
-  <HomePage></HomePage>
+  <!-- <HomePage></HomePage> -->
+  <!-- eslint-disable -->
+  <main>
+    <router-view></router-view>
+  </main>
 </template>
 
 <script>
 import NavBar from './components/elements/NavBar.vue'
-import HomePage from './components/pages/HomePage.vue'
+// import HomePage from './components/pages/HomePage.vue'
 
 export default {
   name: 'App',
   components: {
-    HomePage,
-    NavBar
+    NavBar,
   }
 }
 </script>
