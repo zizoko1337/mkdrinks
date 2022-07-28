@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import App from './App.vue';
 import HomePage from './components/pages/HomePage.vue';
 import LogIn from './components/pages/LogIn.vue';
+import RegisterNewUser from './components/pages/RegisterNewUser.vue';
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap";
@@ -12,6 +13,7 @@ const router = createRouter({
     routes: [
         { path: '', component: HomePage },
         { path: '/login', component: LogIn },
+        { path: '/register', component: RegisterNewUser },
     ]
 });
 

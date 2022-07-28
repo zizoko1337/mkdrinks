@@ -1,4 +1,5 @@
 <template>
+<!-- eslint-disable -->
   <section class="vh-110">
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
@@ -31,7 +32,7 @@
                   v-on:blur="validatePassword()"
                 />
               </div>
-              <p v-if="!passwordBorderValid" class="invalid-message">
+              <p v-if="!passwordValid" class="invalid-message">
                 Password must be minimum 6 characters long, must contain at
                 least one number and special character
               </p>
@@ -50,7 +51,7 @@
                 Passwords does not match
               </p>
 
-              <button class="btn btn-primary btn-lg btn-block" type="submit">
+              <button class="btn btn-primary btn-lg btn-block" type="submit" @click="submitRegister()">
                 Create new account
               </button>
 
@@ -121,10 +122,10 @@ export default {
         )
       ) {
         this.passwordBorder = this.correctBorder;
-        this.passwordBorderValid = true;
+        this.passwordValid = true;
       } else {
         this.passwordBorder = this.incorrectBorder;
-        this.passwordBorderValid = false;
+        this.passwordValid = false;
       }
     },
     validateRepeatedPassword() {
@@ -141,15 +142,20 @@ export default {
     },
     submitRegister() {
       if (this.loginValid && this.passwordValid && this.repeatedPasswordValid) {
-        axios.put(`${this.dbKey}/users/${this.login}.json`, {
-          password: this.password,
-        });
+        axios.post(`${this.dbKey}/users/${this.login}.json`, {
+            password: this.password,
+        }).then(() => { alert(`Account ${this.login} has ben created`) });
+      }else{
+        alert(`Can't create account. Please make sure to input correct data`)
       }
     },
+   
   },
-  mounted() {
-    this.submitRegister();
-  },
+   mounted(){
+         axios.get(`${this.dbKey}/users/testa.json` 
+        ).then((response) => {console.log(Object.values(response.data)[0].password) });
+
+    }
 };
 </script>
 

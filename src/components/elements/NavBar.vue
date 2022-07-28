@@ -31,7 +31,9 @@
             </router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link">Sign up</a>
+            <router-link to="/register">
+              <a class="nav-link">Register</a>
+            </router-link>  
           </li>
         </ul>
         <form class="d-flex">
@@ -65,7 +67,7 @@ export default {
   },
   methods: {
     handleScroll() {
-      if (window.pageYOffset > 100) {
+      if (window.pageYOffset > 10) {
         if (this.view.topOfPage) this.view.topOfPage = false;
         this.navClasses =
           'navbar navbar-expand-lg navbar-dark  border-bottom sticky-top nav-transparent';
