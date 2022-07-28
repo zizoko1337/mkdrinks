@@ -10,7 +10,7 @@ import "bootstrap";
 const router = createRouter({
     history: createWebHistory(),
     routes: [
-        { path: '/home', component: HomePage },
+        { path: '', component: HomePage },
         { path: '/login', component: LogIn },
     ]
 });

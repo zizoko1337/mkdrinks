@@ -18,16 +18,20 @@
       <div class="collapse navbar-collapse " id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <router-link to="/">
+              <a class="nav-link active" aria-current="page">Home</a>
+            </router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Profile</a>
+            <a class="nav-link">Profile</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Log in</a>
+            <router-link to="/login">
+              <a class="nav-link">Log in</a>
+            </router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Sign up</a>
+            <a class="nav-link">Sign up</a>
           </li>
         </ul>
         <form class="d-flex">
@@ -76,6 +80,9 @@ export default {
 </script>
 
 <style scoped>
+a{
+  text-decoration: none;
+}
 img {
   max-width: 80px;
 }
