@@ -1,25 +1,92 @@
 <template>
-  <div class="hello">
-    <h1>Log In</h1>
-    <h2>login</h2>
-    <h2>password</h2>
-  </div>
+<!-- eslint-disable -->
+  <section class="vh-110">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card shadow-2-strong" style="border-radius: 1rem">
+            <div class="card-body p-5 text-center">
+              <h3 class="mb-5">Log In</h3>
+
+              <div class="form-outline mb-4">
+                <input
+                  type="email"
+                  id="typeEmailX-2"
+                  class="form-control form-control-lg"
+                  placeholder="Login"
+                  v-model="login"
+                />
+              </div>
+
+              <div class="form-outline mb-4">
+                <input
+                  type="password"
+                  id="typePasswordX-1"
+                  class="form-control form-control-lg"
+                  placeholder="Password"
+                  v-model="password"
+                />
+              </div>
+
+              <button class="btn btn-primary btn-lg btn-block" type="submit" @click="submitLogin()">
+                Log In
+              </button>
+              
+              <div class="register-link">
+                <p>Not registered yet?
+                  <router-link to="/register">
+                    Create new account
+                  </router-link>  
+                </p>
+              </div>
+              
+            
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   name: 'LogIn',
+  data() {
+    return {
+      login: '',
+      password: null,
 
+      dbKey: process.env.VUE_APP_DB,
+    };
+  },
+  methods: {
+
+    submitLogin() {
+        axios.get(`${this.dbKey}/users/${this.login}.json` 
+        ).then((response) => {
+          this.password === Object.values(response.data)[0].password ? alert(`Logged as a ${this.login}`) : alert(`Wrong password`)
+         }).catch(() => {alert(`User ${this.login} does not exist`)});
+    },
+   
+  },
+   mounted(){
+         axios.get(`${this.dbKey}/users/testa.json` 
+        ).then((response) => {console.log(Object.values(response.data)[0].password) });
+
+    }
 };
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 h1 {
-    color: white;
+  color: white;
 }
-h2{
-    color: white;
+h2 {
+  color: white;
 }
 h3 {
   margin: 40px 0 0;
@@ -33,12 +100,25 @@ li {
   margin: 0 10px;
 }
 a {
-  color: #42b983;
+  color: #3593ff;
 }
-.hello {
-  background: #050131;
+section {
+  background: #6b0a0a;
   background-repeat: no-repeat, repeat;
   background-size: 100%;
   min-height: 1000px;
+}
+.register-link{
+  margin: 15px 0;
+}
+.invalid-input {
+  border-color: red;
+}
+.valid-input {
+  border-color: rgb(0, 255, 0);
+}
+.invalid-message {
+  font-size: 0.8rem;
+  color: red;
 }
 </style>

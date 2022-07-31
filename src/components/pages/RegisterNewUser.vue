@@ -80,7 +80,7 @@
 import axios from 'axios';
 
 export default {
-  name: 'LogIn',
+  name: 'RegisterNewUser',
   data() {
     return {
       login: '',
@@ -144,6 +144,7 @@ export default {
       if (this.loginValid && this.passwordValid && this.repeatedPasswordValid) {
         axios.post(`${this.dbKey}/users/${this.login}.json`, {
             password: this.password,
+            favDrinks: [],
         }).then(() => { alert(`Account ${this.login} has ben created`) });
       }else{
         alert(`Can't create account. Please make sure to input correct data`)
@@ -151,11 +152,6 @@ export default {
     },
    
   },
-   mounted(){
-         axios.get(`${this.dbKey}/users/testa.json` 
-        ).then((response) => {console.log(Object.values(response.data)[0].password) });
-
-    }
 };
 </script>
 
