@@ -22,19 +22,31 @@
               <a class="nav-link active" aria-current="page">Home</a>
             </router-link>
           </li>
-          <li class="nav-item">
-            <a class="nav-link">Profile</a>
+
+            <li v-if="!isUserLogged" class="nav-item">
+              <router-link to="/login">
+                <a class="nav-link">Log in</a>
+              </router-link>
+            </li>
+            <li v-if="!isUserLogged" class="nav-item">
+              <router-link to="/register">
+                <a class="nav-link">Register</a>
+              </router-link>  
+            </li>
+            
+          <li v-if="isUserLogged" class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Profile
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">User profile</a></li>
+              <li><a class="dropdown-item" href="#">User settings</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Log Out</a></li>
+            </ul>
           </li>
-          <li class="nav-item">
-            <router-link to="/login">
-              <a class="nav-link">Log in</a>
-            </router-link>
-          </li>
-          <li class="nav-item">
-            <router-link to="/register">
-              <a class="nav-link">Register</a>
-            </router-link>  
-          </li>
+
+
         </ul>
         <form class="d-flex">
           <input
@@ -60,6 +72,7 @@ export default {
         topOfPage: true,
       },
       navClasses: 'navbar navbar-expand-lg navbar-dark sticky-top nav-colored',
+      isUserLogged: false,
     };
   },
   beforeMount() {
