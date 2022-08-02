@@ -38,7 +38,10 @@ const store = createStore({
         userLogIn(state, username) {
             state.isLogged = true;
             state.username = username;
-            console.log('logged as: ' + state.username)
+        },
+        userLogOut(state) {
+            state.isLogged = false;
+            state.username = null;
         }
     },
     getters: {

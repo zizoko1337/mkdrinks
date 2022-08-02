@@ -63,7 +63,6 @@ export default {
     };
   },
   methods: {
-
     submitLogin() {
         axios.get(`${this.dbKey}/users/${this.login}.json` 
         ).then((response) => {
@@ -73,7 +72,6 @@ export default {
 
     localLogin() {
        this.$store.commit('userLogIn', this.login);
-       alert(`Logged as a ${this.login}`);
        this.$router.replace('/home');
     }
 
