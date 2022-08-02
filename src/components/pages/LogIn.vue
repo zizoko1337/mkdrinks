@@ -73,7 +73,8 @@ export default {
 
     localLogin() {
        this.$store.commit('userLogIn', this.login);
-       alert(`Logged as a ${this.login}`)
+       alert(`Logged as a ${this.login}`);
+       this.$router.replace('/home');
     }
 
   },
