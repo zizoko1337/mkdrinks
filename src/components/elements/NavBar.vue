@@ -23,20 +23,20 @@
             </router-link>
           </li>
 
-            <li v-if="!isUserLogged" class="nav-item">
+            <li v-if="!isUserLogged2" class="nav-item">
               <router-link to="/login">
                 <a class="nav-link">Log in</a>
               </router-link>
             </li>
-            <li v-if="!isUserLogged" class="nav-item">
+            <li v-if="!isUserLogged2" class="nav-item">
               <router-link to="/register">
                 <a class="nav-link">Register</a>
               </router-link>  
             </li>
             
-          <li v-if="isUserLogged" class="nav-item dropdown">
+          <li v-if="isUserLogged2" class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Profile
+              Logged as {{userName}}
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li><a class="dropdown-item" href="#">User profile</a></li>
@@ -72,7 +72,7 @@ export default {
         topOfPage: true,
       },
       navClasses: 'navbar navbar-expand-lg navbar-dark sticky-top nav-colored',
-      isUserLogged: true,
+      isUserLogged: false,
     };
   },
   beforeMount() {
@@ -91,6 +91,14 @@ export default {
       }
     },
   },
+  computed: {
+    isUserLogged2() {
+      return this.$store.getters.userState;
+    },
+     userName() {
+      return this.$store.getters.userName;
+    },
+  }
 };
 </script>
 

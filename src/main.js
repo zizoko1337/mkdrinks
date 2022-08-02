@@ -24,7 +24,7 @@ const router = createRouter({
 
 const store = createStore({
     state() {
-        return{
+        return {
             isLogged: false,
             username: null,
         };
@@ -33,8 +33,17 @@ const store = createStore({
         userLogIn(state, username) {
             state.isLogged = true;
             state.username = username;
+            console.log('logged as: ' + state.username)
         }
-    }
+    },
+    getters: {
+        userState(state) {
+            return state.isLogged;
+        },
+        userName(state) {
+            return state.username;
+        }
+    },
 });
 
 const app = createApp(App);

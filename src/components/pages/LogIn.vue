@@ -25,6 +25,7 @@
                   class="form-control form-control-lg"
                   placeholder="Password"
                   v-model="password"
+                  @keyup.enter="submitLogin()"
                 />
               </div>
 
@@ -58,7 +59,6 @@ export default {
     return {
       login: '',
       password: null,
-
       dbKey: process.env.VUE_APP_DB,
     };
   },
@@ -67,17 +67,17 @@ export default {
     submitLogin() {
         axios.get(`${this.dbKey}/users/${this.login}.json` 
         ).then((response) => {
-          this.password === Object.values(response.data)[0].password ? alert(`Logged as a ${this.login}`) : alert(`Wrong password`)
+          this.password === Object.values(response.data)[0].password ? this.localLogin() : alert(`Wrong password`)
          }).catch(() => {alert(`User ${this.login} does not exist`)});
     },
-   
-  },
-   mounted(){
-         axios.get(`${this.dbKey}/users/testa.json` 
-        ).then((response) => {console.log(Object.values(response.data)[0].password) });
 
+    localLogin() {
+       this.$store.commit('userLogIn', this.login);
+       alert(`Logged as a ${this.login}`)
     }
-};
+
+  },
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
