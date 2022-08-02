@@ -72,7 +72,7 @@ export default {
         topOfPage: true,
       },
       navClasses: 'navbar navbar-expand-lg navbar-dark sticky-top nav-colored',
-      isUserLogged: false,
+      isUserLogged: true,
     };
   },
   beforeMount() {

@@ -26,8 +26,14 @@ const store = createStore({
     state() {
         return{
             isLogged: false,
-            login: null,
+            username: null,
         };
+    },
+    mutations: {
+        userLogIn(state, username) {
+            state.isLogged = true;
+            state.username = username;
+        }
     }
 });
 
