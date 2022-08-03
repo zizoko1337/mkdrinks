@@ -25,17 +25,17 @@
 
             <li v-if="!isUserLogged" class="nav-item">
               <router-link to="/login">
-                <a class="nav-link">Log in</a>
+                <a class="nav-link active">Log in</a>
               </router-link>
             </li>
             <li v-if="!isUserLogged" class="nav-item">
               <router-link to="/register">
-                <a class="nav-link">Register</a>
+                <a class="nav-link active">Register</a>
               </router-link>  
             </li>
             
           <li v-if="isUserLogged" class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Logged as {{userName}}
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -120,11 +120,11 @@ img {
   max-width: 80px;
 }
 .nav-colored {
-  background-color: #050131;
+  background-color: #0060cd;
   transition: 2s background-color;
 }
 .nav-transparent {
-  background-color: #0501314e;
+  background-color: #0060cd8f;
   transition: 2s background-color;
 }
 </style>

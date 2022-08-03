@@ -2,11 +2,12 @@
     <!-- eslint-disable -->
     <section class="vh-110 page">
         <div class="container py-5 h-100">
-            <div class="row d-flex justify-content-center align-items-center h-100">
-                <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-                    <div class="card shadow-2-strong" style="border-radius: 1rem">
+            <div class="row d-flex justify-content-center align-items-center h-100 ">
+                <div class="col-12 col-md-8 col-lg-6 col-xl-5 ">
+                    <div class="card shadow-2-strong error-card justify-content-center align-items-center shadow" style="border-radius: 1rem">
                         
                         <h1>ERROR 404</h1>
+                        <img src="https://cdn-icons.flaticon.com/png/512/3855/premium/3855208.png?token=exp=1659556428~hmac=2cb513fdddc6b91854d663ee39ee3a0b" alt="">
                         <h2>Page not found</h2>
                       
                     </div>
@@ -25,10 +26,17 @@ export default {
 </script>
 
 <style>
+.error-card {
+    padding: 50px;
+}
+img {
+    max-width: 200px;
+}
+h1, h2 {
+    color: black;
+}
 section {
-  background: #6b0a0a;
   background-repeat: no-repeat, repeat;
   background-size: 100%;
-  min-height: 1000px;
 }
 </style>

@@ -4,7 +4,7 @@
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-          <div class="card shadow-2-strong" style="border-radius: 1rem">
+          <div class="card shadow-2-strong shadow" style="border-radius: 1rem">
             <div class="card-body p-5 text-center">
               <h3 class="mb-5">Sign Up</h3>
 
@@ -51,7 +51,7 @@
                 Passwords does not match
               </p>
 
-              <button class="btn btn-primary btn-lg btn-block" type="submit" @click="submitRegister()">
+              <button class="btn btn-outline-primary btn-lg btn-block" type="submit" @click="submitRegister()">
                 Create new account
               </button>
 
@@ -61,11 +61,11 @@
               <p>
                 This website is not a official project. The purpose of this
                 website is to present frontend skills of author.
-                <b
-                  >Do not use your important password while creating new
-                  account.</b
-                >
-                It might not be safe and i do not take responsibility for data
+                <b>
+                  Do not use your important password while creating new
+                  account.
+                </b>
+                It is not be safe and i do not take responsibility for data
                 leakage!
               </p>
             </div>
@@ -145,7 +145,7 @@ export default {
         axios.post(`${this.dbKey}/users/${this.login}.json`, {
             password: this.password,
             favDrinks: [],
-        }).then(() => { alert(`Account ${this.login} has ben created`) });
+        }).then(() => { alert(`Account ${this.login} has ben created`); this.$router.replace('/login'); });
       }else{
         alert(`Can't create account. Please make sure to input correct data`)
       }
@@ -178,7 +178,6 @@ a {
   color: #42b983;
 }
 section {
-  background: #6b0a0a;
   background-repeat: no-repeat, repeat;
   background-size: 100%;
   min-height: 1000px;

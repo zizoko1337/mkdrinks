@@ -47,7 +47,6 @@ export default {
 
 <style>
 section {
-  background: #6b0a0a;
   background-repeat: no-repeat, repeat;
   background-size: 100%;
   min-height: 1000px;

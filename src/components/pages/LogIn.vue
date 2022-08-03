@@ -1,11 +1,11 @@
 <template>
 <!-- eslint-disable -->
   <section class="vh-110">
-    <div class="container py-5 h-100">
+    <div class="container py-5 h-100 ">
       <div class="row d-flex justify-content-center align-items-center h-100">
-        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-          <div class="card shadow-2-strong" style="border-radius: 1rem">
-            <div class="card-body p-5 text-center">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5 ">
+          <div class="card shadow-2-strong shadow" style="border-radius: 1rem ">
+            <div class="card-body p-5 text-center ">
               <h3 class="mb-5">Log In</h3>
 
               <div class="form-outline mb-4">
@@ -29,7 +29,7 @@
                 />
               </div>
 
-              <button class="btn btn-primary btn-lg btn-block" type="submit" @click="submitLogin()">
+              <button class="btn btn-outline-primary btn-lg btn-block" type="submit" @click="submitLogin()">
                 Log In
               </button>
               
@@ -102,10 +102,8 @@ a {
   color: #3593ff;
 }
 section {
-  background: #6b0a0a;
   background-repeat: no-repeat, repeat;
   background-size: 100%;
-  min-height: 1000px;
 }
 .register-link{
   margin: 15px 0;
