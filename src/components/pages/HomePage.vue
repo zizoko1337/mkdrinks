@@ -22,7 +22,7 @@
     <div class="container">
 
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-        <div class="col">
+        <div class="col ">
           <div class="card shadow-sm">
             <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
 
@@ -171,6 +171,7 @@
       </div>
     </div>
   </div>
+  <div class="home-content"></div>
 </template>
 
 <script>
@@ -193,7 +194,11 @@ section {
   background-repeat: no-repeat;
   background-size: 100%;
   background-attachment: fixed;
+  background-position: right 50% bottom 10%;
   max-width: 100%;
+}
+.home-content {
+ min-height: 150px;
 }
 .shadow-letters {
   color: white;
@@ -212,8 +217,20 @@ section {
 }
 @media (max-width: 630px) {
   section {
-background-size: cover;
-  background-position: center;
+    background-size: cover;
+    background-position: right 50% bottom 100px;
+  }
 }
+@media (max-width: 1500px) and  (min-width: 1000px){
+  section {
+    background-size: cover;
+    background-position: right 50% bottom 0;
+  }
+}
+@media (max-width: 1000px) and  (min-width: 630px){
+  section {
+    background-size: cover;
+    background-position: right 50% bottom 100px;
+  }
 }
 </style>

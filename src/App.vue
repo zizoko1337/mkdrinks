@@ -1,20 +1,22 @@
 <template>
   <NavBar></NavBar>
-  <!-- <HomePage></HomePage> -->
   <!-- eslint-disable -->
   <main>
     <router-view></router-view>
   </main>
+  <FooterBar></FooterBar>
 </template>
 
 <script>
 import NavBar from './components/elements/NavBar.vue'
-// import HomePage from './components/pages/HomePage.vue'
+import FooterBar from './components/elements/FooterBar.vue'
+
 
 export default {
   name: 'App',
   components: {
     NavBar,
+    FooterBar
   }
 }
 </script>
@@ -27,5 +29,9 @@ export default {
   text-align: center;
   color: #2c3e50;
   background: #ffffff;
+   position: relative;
+  min-height: 100vh;
+  
 }
+
 </style>
