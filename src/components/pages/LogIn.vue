@@ -29,7 +29,7 @@
                 />
               </div>
 
-              <button class="btn btn-outline-primary btn-lg btn-block" type="submit" @click="submitLogin()">
+              <button class="btn btn-primary btn-lg btn-block" type="submit" @click="submitLogin()">
                 Log In
               </button>
               
@@ -101,10 +101,7 @@ li {
 a {
   color: #3593ff;
 }
-section {
-  background-repeat: no-repeat, repeat;
-  background-size: 100%;
-}
+
 .register-link{
   margin: 15px 0;
 }

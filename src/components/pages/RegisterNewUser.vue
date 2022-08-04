@@ -51,7 +51,7 @@
                 Passwords does not match
               </p>
 
-              <button class="btn btn-outline-primary btn-lg btn-block" type="submit" @click="submitRegister()">
+              <button class="btn btn-primary btn-lg btn-block" type="submit" @click="submitRegister()">
                 Create new account
               </button>
 

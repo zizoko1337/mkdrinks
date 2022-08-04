@@ -44,7 +44,7 @@
                   <a class="dropdown-item">User profile</a>
                 </router-link>
               </li>
-              <li><a class="dropdown-item" href="#">User settings</a></li>
+              <!-- <li><a class="dropdown-item" href="#">User settings</a></li> -->
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" @click="logOut">Log Out</a></li>
             </ul>

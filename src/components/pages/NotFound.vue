@@ -6,7 +6,7 @@
                 <div class="col-12 col-md-8 col-lg-6 col-xl-5 ">
                     <div class="card shadow-2-strong error-card justify-content-center align-items-center shadow" style="border-radius: 1rem">
                         
-                        <h1>ERROR 404</h1>
+                        <h1>ERROR</h1>
                         <img src="https://cdn-icons.flaticon.com/png/512/3855/premium/3855208.png?token=exp=1659556428~hmac=2cb513fdddc6b91854d663ee39ee3a0b" alt="">
                         <h2>Page not found</h2>
                       
@@ -34,9 +34,5 @@ img {
 }
 h1, h2 {
     color: black;
-}
-section {
-  background-repeat: no-repeat, repeat;
-  background-size: 100%;
 }
 </style>

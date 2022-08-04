@@ -45,10 +45,6 @@ export default {
 }
 </script>
 
-<style>
-section {
-  background-repeat: no-repeat, repeat;
-  background-size: 100%;
-  min-height: 1000px;
-}
+<style scoped>
+
 </style>
