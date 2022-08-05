@@ -8,6 +8,7 @@ import LogIn from './components/pages/LogIn.vue';
 import NotFound from './components/pages/NotFound.vue';
 import RegisterNewUser from './components/pages/RegisterNewUser.vue';
 
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap";
 
