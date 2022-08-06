@@ -28,7 +28,7 @@
               More details
             </button>
           </div>
-          <button type="button" class="btn btn-lg ">
+          <button v-if="isUserLogged" type="button" class="btn btn-lg ">
             <i class="far fa-star"></i>
           </button>
         </div>
@@ -50,6 +50,11 @@ export default {
       drinkImage: null,
       drinkError: null,
     };
+  },
+  computed: {
+    isUserLogged() {
+      return this.$store.getters.userState;
+    },
   },
   mounted() {
     axios
