@@ -1,5 +1,5 @@
 <template>
-  <div class="col">
+  <div v-if="!drinkError" class="col">
     <div class="card shadow-sm">
       <div class="p-2">
         <img
@@ -48,6 +48,7 @@ export default {
       drinkName: null,
       drinkDescription: null,
       drinkImage: null,
+      drinkError: null,
     };
   },
   mounted() {
@@ -56,6 +57,7 @@ export default {
         `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${this.drinkId}`
       )
       .then((response) => {
+        this.drinkError = false;
         this.drinkName = response.data.drinks[0].strDrink;
         this.drinkImage = response.data.drinks[0].strDrinkThumb,
         this.drinkDescription = [
@@ -66,7 +68,7 @@ export default {
 
       })
       .catch(() => {
-        alert(`Cant load drink with id: ${this.drinkId}`);
+        this.drinkError = true;
       });
   },
 };
