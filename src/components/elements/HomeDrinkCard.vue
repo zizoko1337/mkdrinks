@@ -1,6 +1,11 @@
 <template>
   <div v-if="!drinkError" class="col">
-    <div class="card shadow-sm">
+    <div v-if="isLoading" class="card shadow-sm justify-content-center align-items-center loading-card ">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>   
+    <div v-else class="card shadow-sm">
       <div class="p-2">
         <img
           class="bd-placeholder-img card-img-top rounded-circle border border-primary border-2"
@@ -49,6 +54,7 @@ export default {
       drinkDescription: null,
       drinkImage: null,
       drinkError: null,
+      isLoading: true,
     };
   },
   computed: {
@@ -62,6 +68,7 @@ export default {
         `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${this.drinkId}`
       )
       .then((response) => {
+        this.isLoading = false;
         this.drinkError = false;
         this.drinkName = response.data.drinks[0].strDrink;
         this.drinkImage = response.data.drinks[0].strDrinkThumb,
@@ -80,6 +87,9 @@ export default {
 </script>
 
 <style>
+.loading-card {
+    min-height: 400px;
+}
 .bd-placeholder-img {
   font-size: 1.125rem;
   text-anchor: middle;
