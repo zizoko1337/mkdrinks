@@ -144,7 +144,7 @@ export default {
       if (this.loginValid && this.passwordValid && this.repeatedPasswordValid) {
         axios.post(`${this.dbKey}/users/${this.login}.json`, {
             password: this.password,
-            favDrinks: [''],
+            fav: { favDrinks: ['']},
         }).then(() => { alert(`Account ${this.login} has ben created`); this.$router.replace('/login'); });
       }else{
         alert(`Can't create account. Please make sure to input correct data`)

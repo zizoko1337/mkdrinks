@@ -69,7 +69,7 @@ export default {
         axios.get(`${this.dbKey}/users/${this.login}.json` 
         ).then((response) => {
           if(this.password === Object.values(response.data)[0].password){
-            this.favs = this.userFavHandler(Object.values(response.data)[0].favDrinks)
+            this.favs = this.userFavHandler(Object.values(response.data)[0].fav.favDrinks)
             this.localLogin(this.favs)
             }else{
             alert(`Wrong password`) 

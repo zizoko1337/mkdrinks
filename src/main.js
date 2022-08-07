@@ -55,9 +55,13 @@ const store = createStore({
             state.username = null;
             state.userFavs = [];
         },
-        addToFav(state, index) {
-            state.userFavs.push(index)
+        addToFav(state, id) {
+            state.userFavs.push(id)
         },
+        removeFromFav(state, value) {
+           const key = Object.keys(state.userFavs).find(key => state.userFavs[key] === value);
+           delete state.userFavs[key]
+        }
     },
     getters: {
         userState(state) {

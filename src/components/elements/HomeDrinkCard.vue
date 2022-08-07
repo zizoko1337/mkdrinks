@@ -34,7 +34,7 @@
           <button v-if="isUserLogged && !isFav" @click="addToFav" type="button" class="btn btn-lg">
             <i class="far fa-star star-color"></i>
           </button>
-          <button v-if="isUserLogged && isFav" type="button" class="btn btn-lg">
+          <button v-if="isUserLogged && isFav" @click="removeFromFav" type="button" class="btn btn-lg">
             <i class="fas fa-star star-color"></i>
           </button>
         </div>
@@ -56,6 +56,7 @@ export default {
       drinkImage: null,
       drinkError: null,
       isLoading: true,
+      dbKey: process.env.VUE_APP_DB,
     };
   },
   computed: {
@@ -78,7 +79,34 @@ export default {
   },
   methods: {
     addToFav() {
-          this.$store.commit('addToFav', this.drinkId);
+        this.$store.commit('addToFav', this.drinkId);
+
+        axios.get(
+            `${this.dbKey}/users/${this.userName}.json`
+        ).then((response) => {
+            const id = Object.keys(response.data)[0];
+
+            axios.put(
+            `${this.dbKey}/users/${this.userName}/${id}/fav.json`, { favDrinks: this.userFavs }
+            );
+
+        })
+
+    },
+    removeFromFav() {
+        this.$store.commit('removeFromFav', this.drinkId);
+
+        axios.get(
+            `${this.dbKey}/users/${this.userName}.json`
+        ).then((response) => {
+            const id = Object.keys(response.data)[0];
+
+            axios.put(
+            `${this.dbKey}/users/${this.userName}/${id}/fav.json`, { favDrinks: this.userFavs }
+            );
+
+        })
+        
     }
   },
   mounted() {
