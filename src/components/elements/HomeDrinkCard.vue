@@ -5,7 +5,7 @@
             <span class="visually-hidden">Loading...</span>
         </div>
     </div>   
-    <div v-else class="card shadow-sm">
+    <div v-else class="card shadow-2-strong shadow ">
       <div class="p-2">
         <img
           class="bd-placeholder-img card-img-top rounded-circle border border-primary border-2"
@@ -25,9 +25,11 @@
           </li>
         <div class="d-flex justify-content-between align-items-center">
           <div class="btn-group">
-            <button type="button" class="btn btn-md btn-outline-dark">
-              More details
-            </button>
+            <router-link :to="drinkLink">
+                <a type="button" class="btn btn-md btn-outline-dark">
+                More details
+                </a>
+            </router-link>
           </div>
           <button v-if="isUserLogged" type="button" class="btn btn-lg ">
             <i class="far fa-star"></i>
@@ -57,6 +59,9 @@ export default {
     isUserLogged() {
       return this.$store.getters.userState;
     },
+     drinkLink() {
+      return '/drink/' + this.drinkName;
+    }
   },
   mounted() {
     axios

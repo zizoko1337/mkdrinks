@@ -1,6 +1,7 @@
 <template>
   <div>
-    <p>test id's</p>
+    <h1>test id's</h1>
+    <h2>Component for testing available id's. It should be removed, but will stay for code review</h2>
     <p>{{ arr }}</p>
     <p>{{arr.length}}</p>
   </div>

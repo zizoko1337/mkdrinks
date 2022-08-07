@@ -7,7 +7,7 @@
                     <div class="card shadow-2-strong error-card justify-content-center align-items-center shadow" style="border-radius: 1rem">
                         
                         <h1>ERROR</h1>
-                        <img src="https://cdn-icons.flaticon.com/png/512/3855/premium/3855208.png?token=exp=1659556428~hmac=2cb513fdddc6b91854d663ee39ee3a0b" alt="">
+                        <img src="../../assets/404.png" alt="">
                         <h2>Page not found</h2>
                       
                     </div>

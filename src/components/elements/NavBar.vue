@@ -1,9 +1,11 @@
 <template>
   <nav id="navbar" :class="navClasses">
     <div class="container-fluid ">
-      <a class="navbar-brand" href="#"
-        ><img src="../../assets/logo.png" alt="mkDrinks logo"
-      /></a>
+      <router-link to="/">
+        <a class="navbar-brand">
+          <img src="../../assets/logo.png" alt="mkDrinks logo"/>
+        </a>
+      </router-link>
       <button
         class="navbar-toggler"
         type="button"
@@ -58,8 +60,11 @@
             type="search"
             placeholder="Search drink"
             aria-label="Search"
+            v-model="drinkName"
           />
-          <button class="btn btn-outline-light" type="submit">Search</button>
+          <router-link :to="drinkLink">
+            <button class="btn btn-outline-light" type="submit">Search</button>
+          </router-link>
         </form>
       </div>
     </div>
@@ -72,6 +77,7 @@ export default {
   el: '#navbar',
   data() {
     return {
+      drinkName: null,
       view: {
         topOfPage: true,
       },
@@ -107,6 +113,9 @@ export default {
     },
     profileLink() {
       return '/profile/' + this.userName;
+    },
+     drinkLink() {
+      return '/drink/' + this.drinkName;
     }
   }
 };

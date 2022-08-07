@@ -29,7 +29,7 @@ export default {
   text-align: center;
   color: #2c3e50;
   background: #ffffff;
-   position: relative;
+  position: relative;
   min-height: 100vh;
   
 }

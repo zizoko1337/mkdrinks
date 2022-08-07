@@ -47,6 +47,7 @@
         </div>
       </div>
     </div>
+    <div class="container under-content"></div>
   </section>
 </template>
 
@@ -115,5 +116,8 @@ a {
 .invalid-message {
   font-size: 0.8rem;
   color: red;
+}
+.under-content {
+    height: 200px;
 }
 </style>

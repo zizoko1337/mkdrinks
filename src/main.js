@@ -4,11 +4,12 @@ import { createStore } from 'vuex';
 import App from './App.vue';
 import HomePage from './components/pages/HomePage.vue';
 import ProfilePage from './components/pages/ProfilePage.vue';
+import DrinkPage from './components/pages/DrinkPage.vue';
 import LogIn from './components/pages/LogIn.vue';
 import NotFound from './components/pages/NotFound.vue';
 import RegisterNewUser from './components/pages/RegisterNewUser.vue';
 
-import TestId from './components/elements/TestId.vue';
+import TestId from './components/elements/TestId.vue'; // component for testing available id's. It should be removed, but will stay for code review
 
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -24,6 +25,7 @@ const router = createRouter({
         { path: '/login', component: LogIn },
         { path: '/register', component: RegisterNewUser },
         { path: '/profile/:id', component: ProfilePage, props: true },
+        { path: '/drink/:drink', component: DrinkPage, props: true },
         { path: '/:notFound(.*)', component: NotFound },
 
         { path: '/testid', component: TestId },
