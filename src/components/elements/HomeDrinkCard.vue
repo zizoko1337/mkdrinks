@@ -31,8 +31,11 @@
                 </a>
             </router-link>
           </div>
-          <button v-if="isUserLogged" type="button" class="btn btn-lg ">
-            <i class="far fa-star"></i>
+          <button v-if="isUserLogged && !isFav" @click="addToFav" type="button" class="btn btn-lg">
+            <i class="far fa-star star-color"></i>
+          </button>
+          <button v-if="isUserLogged && isFav" type="button" class="btn btn-lg">
+            <i class="fas fa-star star-color"></i>
           </button>
         </div>
       </div>
@@ -59,8 +62,23 @@ export default {
     isUserLogged() {
       return this.$store.getters.userState;
     },
-     drinkLink() {
+    userName() {
+      return this.$store.getters.userName;
+    },
+    userFavs() {
+        return this.$store.getters.userFavs;
+    },
+    drinkLink() {
       return '/drink/' + this.drinkName;
+    },
+    isFav() {
+        return Object.values(this.userFavs).includes(this.drinkId) ? true : false
+    },
+    
+  },
+  methods: {
+    addToFav() {
+          this.$store.commit('addToFav', this.drinkId);
     }
   },
   mounted() {
@@ -83,6 +101,7 @@ export default {
       .catch(() => {
         this.drinkError = true;
       });
+      
   },
 };
 </script>
@@ -96,6 +115,10 @@ export default {
   text-anchor: middle;
   -webkit-user-select: none;
   user-select: none;
+}
+.star-color {
+    color: #0060cd;
+
 }
 @media (min-width: 768px) {
   .bd-placeholder-img-lg {

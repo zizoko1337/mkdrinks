@@ -39,6 +39,7 @@ const store = createStore({
         return {
             isLogged: false,
             username: null,
+            userFavs: null,
         };
     },
     mutations: {
@@ -46,10 +47,17 @@ const store = createStore({
             state.isLogged = true;
             state.username = username;
         },
+        userLogInFavs(state, favs) {
+            state.userFavs = favs;
+        },
         userLogOut(state) {
             state.isLogged = false;
             state.username = null;
-        }
+            state.userFavs = [];
+        },
+        addToFav(state, index) {
+            state.userFavs.push(index)
+        },
     },
     getters: {
         userState(state) {
@@ -57,9 +65,14 @@ const store = createStore({
         },
         userName(state) {
             return state.username;
+        },
+        userFavs(state) {
+            return state.userFavs;
         }
     },
 });
+
+
 
 const app = createApp(App);
 

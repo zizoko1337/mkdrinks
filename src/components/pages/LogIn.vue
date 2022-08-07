@@ -60,6 +60,7 @@ export default {
     return {
       login: '',
       password: null,
+      favs: null,
       dbKey: process.env.VUE_APP_DB,
     };
   },
@@ -67,16 +68,34 @@ export default {
     submitLogin() {
         axios.get(`${this.dbKey}/users/${this.login}.json` 
         ).then((response) => {
-          this.password === Object.values(response.data)[0].password ? this.localLogin() : alert(`Wrong password`)
+          if(this.password === Object.values(response.data)[0].password){
+            this.favs = this.userFavHandler(Object.values(response.data)[0].favDrinks)
+            this.localLogin(this.favs)
+            }else{
+            alert(`Wrong password`) 
+           }
          }).catch(() => {alert(`User ${this.login} does not exist`)});
     },
 
     localLogin() {
        this.$store.commit('userLogIn', this.login);
+       this.$store.commit('userLogInFavs', this.favs);
        this.$router.replace('/home');
+    },
+    userFavHandler(obj) {
+      const arr = [];
+      for (const item of obj) {
+        arr.push(item)
+      }
+      return arr
     }
 
   },
+  computed: {
+    userFavs() {
+        return this.$store.getters.userFavs;
+    },
+  }
 }
 </script>
 
