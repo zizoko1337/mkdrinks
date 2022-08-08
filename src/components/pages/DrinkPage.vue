@@ -32,9 +32,14 @@
                             focusable="false"
                         />
                         <h1>{{ drinkName }}</h1>
-                        <button v-if="isUserLogged" type="button" class="btn btn-lg ">
-                            <i class="far fa-star"></i>
+
+                        <button v-if="isUserLogged && !isFav" @click="addToFav" type="button" class="btn btn-lg">
+                            <i class="far fa-star star-color"></i>
                         </button>
+                        <button v-if="isUserLogged && isFav" @click="removeFromFav" type="button" class="btn btn-lg">
+                            <i class="fas fa-star star-color"></i>
+                        </button>
+
                         <p class="fs-3">{{drinkDescription[0]}} {{drinkDescription[1]}} {{drinkDescription[2]}}</p>
                         <h2>Ingredients</h2>
                         <ul>
@@ -68,16 +73,54 @@ export default {
             drinkExist: true,
             drinkName: null,
             drinkImage: null,
+            drinkId: null,
             drinkInstructions: null,
             drinkDescription: [],
             drinkIngredients: [],
+            dbKey: process.env.VUE_APP_DB,
         }
     },
     computed: {
         isUserLogged() {
-        return this.$store.getters.userState;
+            return this.$store.getters.userState;
         },
+        userName() {
+            return this.$store.getters.userName;
+        },
+        userFavs() {
+            return this.$store.getters.userFavs;
+        },
+       isFav() {
+        return Object.values(this.userFavs).includes(Number(this.drinkId)) ? true : false;
+        },
+     
     },
+    methods: {
+    addToFav() {
+        this.$store.commit('addToFav', Number(this.drinkId));
+
+        axios.get(
+            `${this.dbKey}/users/${this.userName}.json`
+        ).then((response) => {
+            const id = Object.keys(response.data)[0];
+            axios.put(
+            `${this.dbKey}/users/${this.userName}/${id}/fav.json`, { favDrinks: this.userFavs }
+            );
+        })
+    },
+    removeFromFav() {
+        this.$store.commit('removeFromFav', Number(this.drinkId));
+
+        axios.get(
+            `${this.dbKey}/users/${this.userName}.json`
+        ).then((response) => {
+            const id = Object.keys(response.data)[0];
+            axios.put(
+            `${this.dbKey}/users/${this.userName}/${id}/fav.json`, { favDrinks: this.userFavs }
+            );
+        })
+    }
+  },
     mounted() {
     axios
       .get(
@@ -87,6 +130,8 @@ export default {
         this.isLoading = false;
         this.drinkName = response.data.drinks[0].strDrink;
         this.drinkImage = response.data.drinks[0].strDrinkThumb;
+        this.drinkId = response.data.drinks[0].idDrink;
+        console.log(this.isFav)
         this.drinkInstructions = response.data.drinks[0].strInstructions;
         this.drinkDescription = [
           response.data.drinks[0].strCategory,
@@ -221,5 +266,8 @@ li {
 }
 .under-content {
     height: 200px;
+}
+.star-color {
+    color: #0060cd;
 }
 </style>

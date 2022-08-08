@@ -85,13 +85,10 @@ export default {
             `${this.dbKey}/users/${this.userName}.json`
         ).then((response) => {
             const id = Object.keys(response.data)[0];
-
             axios.put(
             `${this.dbKey}/users/${this.userName}/${id}/fav.json`, { favDrinks: this.userFavs }
             );
-
         })
-
     },
     removeFromFav() {
         this.$store.commit('removeFromFav', this.drinkId);
@@ -100,16 +97,13 @@ export default {
             `${this.dbKey}/users/${this.userName}.json`
         ).then((response) => {
             const id = Object.keys(response.data)[0];
-
             axios.put(
             `${this.dbKey}/users/${this.userName}/${id}/fav.json`, { favDrinks: this.userFavs }
             );
-
         })
-        
     }
   },
-  mounted() {
+  mounted() { 
     axios
       .get(
         `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${this.drinkId}`
@@ -146,7 +140,6 @@ export default {
 }
 .star-color {
     color: #0060cd;
-
 }
 @media (min-width: 768px) {
   .bd-placeholder-img-lg {
