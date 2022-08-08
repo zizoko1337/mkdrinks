@@ -4,39 +4,51 @@
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-12 col-md-12 col-lg-10 col-xl-10 ">
-                    <div class="card sshadow-2-strong shadow  p-4" style="border-radius: 1rem">
-                        
-                        <img src="../../assets/user.png" alt="" class="my-4">
+                    <div class="card shadow-2-strong shadow  p-4" style="border-radius: 1rem">
+                        <div class="text-center">
+                            <img src="../../assets/user.png" alt="" class="my-4">
+                        </div>
                         <h1>{{ this.id }}</h1>
                         <h3>Favorite drinks</h3>
-                      
-                        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
-                        <!-- <div class="carousel-indicators">
+                        
+
+                        <span v-for="idSet of renderedFavs" :key="idSet">
+
+                                <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 m-2">
+                                    <HomeDrinkCard :drinkId="idSet[0]"></HomeDrinkCard>
+                                    <HomeDrinkCard :drinkId="idSet[1]"></HomeDrinkCard>  
+                                    <HomeDrinkCard :drinkId="idSet[2]"></HomeDrinkCard>  
+                                    
+                                 </div>
+
+                        </span>
+                        <!-- <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" data-interval="100000">
+                        <div class="carousel-indicators">
                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                        </div> -->
+                        </div>
                             <div class="carousel-inner">
-                                <div class="carousel-item active">
-                                    <div class="row row-cols-3 row-cols-sm-3 row-cols-md-3 ">
-                                        
-                                    <div><HomeDrinkCard :drinkId="11007"></HomeDrinkCard></div>
-    
-                                    <div><HomeDrinkCard :drinkId="11008"></HomeDrinkCard></div>
-                                    <div><HomeDrinkCard :drinkId="11009"></HomeDrinkCard></div>
+                                <div class="carousel-item active"  >
+                                    <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 ">
+                                                    
+                                        <HomeDrinkCard :drinkId="userFavs[1]"></HomeDrinkCard>  
+                                        <HomeDrinkCard :drinkId="userFavs[2]"></HomeDrinkCard>
+                                        <HomeDrinkCard :drinkId="userFavs[3]"></HomeDrinkCard>
 
-                                    </div>
+                                     </div>
                                 </div>
-                                <div class="carousel-item active">
-                                    <div class="row row-cols-3row-cols-sm-3 row-cols-md-3 ">
-                                        
-                                    <div><HomeDrinkCard :drinkId="11007"></HomeDrinkCard></div>
-    
-                                    <div><HomeDrinkCard :drinkId="11008"></HomeDrinkCard></div>
-                                    <div><HomeDrinkCard :drinkId="11009"></HomeDrinkCard></div>
 
+                                <span v-for="idSet in userFavs" :key="idSet">
+                                    <div class="carousel-item"  >
+                                        <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 ">
+                                            
+                                        <HomeDrinkCard :drinkId="idSet"></HomeDrinkCard>  
+
+                                        </div>
                                     </div>
-                                </div>
+                                </span>
+
                             </div>
                             <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                                 <img src="../../assets/left.png" alt="" class="arrow">
@@ -46,7 +58,7 @@
                                 <img src="../../assets/right.png" alt="" class="arrow">
                                 <span class="visually-hidden">Next</span>
                             </button>
-                        </div>
+                        </div> -->
 
                     </div>
                 </div>
@@ -69,8 +81,37 @@ export default {
      },
     data(){
         return {
+            renderedFavs: [],
             dbKey: process.env.VUE_APP_DB
         }
+    },
+    methods: {
+        renderFavs(){
+           
+            for(var i = 1; i < this.userFavs.length; i = i + 3){
+                /* eslint-disable */
+                while(this.userFavs[i] == null && i < this.userFavs.length){
+                    i++
+                };
+                const firstIndex = i;
+                i++
+                while(this.userFavs[i] == null && i < this.userFavs.length){
+                    i++
+                };
+                const secondIndex = i;
+                i++
+                while(this.userFavs[i] == null && i < this.userFavs.length){
+                    i++
+                };
+                const thirdIndex = i;
+                this.renderedFavs.push([
+                    this.userFavs[firstIndex],
+                    this.userFavs[secondIndex],
+                    this.userFavs[thirdIndex]
+                ])
+            }
+        }
+
     },
     created() {
         axios.get(`${this.dbKey}/users.json` 
@@ -81,8 +122,23 @@ export default {
                 this.$router.replace('/notFound');
             }
          
-         })
-    }
+         });
+         this.renderFavs();
+         console.log(this.renderedFavs)
+    },
+    computed: {
+    isUserLogged() {
+      return this.$store.getters.userState;
+    },
+    userName() {
+      return this.$store.getters.userName;
+    },
+    userFavs() {
+        return this.$store.getters.userFavs;
+    },
+
+    },
+
 }
 </script>
 
@@ -99,6 +155,7 @@ export default {
 .arrow:hover {
   animation: hithere 1s ease ;
 }
+
 @keyframes hithere {
   30% { transform: scale(1.2); }
   40%, 60% { transform: rotate(-20deg) scale(1.2); }
@@ -106,4 +163,5 @@ export default {
   70% { transform: rotate(0deg) scale(1.2); }
   100% { transform: scale(1); }
 }
+
 </style>

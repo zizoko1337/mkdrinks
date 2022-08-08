@@ -74,7 +74,7 @@ export default {
             }else{
             alert(`Wrong password`) 
            }
-         }).catch(() => {alert(`User ${this.login} does not exist`)});
+         }).catch((err) => {alert(`User ${this.login} does not exist`); console.log(err)});
     },
 
     localLogin() {
