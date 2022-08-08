@@ -9,10 +9,11 @@
                             <img src="../../assets/user.png" alt="" class="my-4">
                         </div>
                         <h1>{{ this.id }}</h1>
-                        <h3>Favorite drinks</h3>
+                        <h3 v-if="renderedFavs[0][0] != null">Favorite drinks</h3>
+                        <h3 v-else>No favorite drinks</h3>
                         
 
-                        <span v-for="idSet of renderedFavs" :key="idSet">
+                        <span v-if="renderedFavs[0][0] != null" v-for="idSet of renderedFavs" :key="idSet">
 
                                 <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 m-2">
                                     <HomeDrinkCard :drinkId="idSet[0]"></HomeDrinkCard>
@@ -136,7 +137,6 @@ export default {
     userFavs() {
         return this.$store.getters.userFavs;
     },
-
     },
 
 }
