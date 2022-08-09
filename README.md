@@ -13,6 +13,7 @@ This website allows you to:
 </ul>
 <h2>Currently some of the website features does not work when user is not logged in</h2>
 searching for drink and viewing more details works only in u are logged in (dunno why, need to figure it out)
+<h2>Aslo for some reason refreshing website makes it return error so please do not refresh website and use navbar for nawigation</h2>
 
 ![image](https://user-images.githubusercontent.com/95056942/183537567-dd61f362-b950-43d5-a69e-e69d24d05ce6.png)
 
