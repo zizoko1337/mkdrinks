@@ -20,6 +20,7 @@ import "bootstrap";
 const router = createRouter({
     history: createWebHistory(),
     routes: [
+        // { path: '/mkdrinks', redirect: '/home' },
         { path: '/', redirect: '/home' },
         { path: '/home', component: HomePage },
         { path: '/login', component: LogIn },
