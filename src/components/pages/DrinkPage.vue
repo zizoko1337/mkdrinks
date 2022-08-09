@@ -21,7 +21,6 @@
                     <div v-else class="card shadow-2-strong shadow justify-content-between align-items-center" style="border-radius: 1rem">
 
                         <img 
-                            v-if="drinkExist"
                             class="card-img-top rounded-circle border border-primary border-2 my-5 shadow-2-strong shadow"
                             :src="drinkImage"
                             width="100%"
@@ -36,7 +35,7 @@
                         <button v-if="isUserLogged && !isFav" @click="addToFav" type="button" class="btn btn-lg">
                             <i class="far fa-star star-color"></i>
                         </button>
-                        <button v-if="isUserLogged && isFav" @click="removeFromFav" type="button" class="btn btn-lg">
+                        <button v-else-if="isUserLogged && isFav" @click="removeFromFav" type="button" class="btn btn-lg">
                             <i class="fas fa-star star-color"></i>
                         </button>
 
@@ -131,7 +130,6 @@ export default {
         this.drinkName = response.data.drinks[0].strDrink;
         this.drinkImage = response.data.drinks[0].strDrinkThumb;
         this.drinkId = response.data.drinks[0].idDrink;
-        console.log(this.isFav)
         this.drinkInstructions = response.data.drinks[0].strInstructions;
         this.drinkDescription = [
           response.data.drinks[0].strCategory,
@@ -245,7 +243,8 @@ export default {
         }
 
       })
-      .catch(() => {
+      .catch((e) => {
+        console.log(e);
         this.drinkExist = false;
         this.isLoading = false;
       });

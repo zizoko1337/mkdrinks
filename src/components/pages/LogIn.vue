@@ -80,7 +80,7 @@ export default {
     localLogin() {
        this.$store.commit('userLogIn', this.login);
        this.$store.commit('userLogInFavs', this.favs);
-       this.$router.replace('/home');
+       this.$router.replace('/mkdrinks');
     },
     userFavHandler(obj) {
       const arr = [];
