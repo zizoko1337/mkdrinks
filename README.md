@@ -13,7 +13,9 @@ This website allows you to:
 </ul>
 <h2>Currently some of the website features does not work on gh-pages</h2>
 actions like searching for drink and viewing more details works only on localhost (dunno why, need to figure it out)
+
 ![image](https://user-images.githubusercontent.com/95056942/183537567-dd61f362-b950-43d5-a69e-e69d24d05ce6.png)
+
 Technologies used:
 <ul>
 <li>Vue.js</li>
