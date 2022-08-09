@@ -101,7 +101,7 @@ export default {
     },
     logOut() {
       this.$store.commit('userLogOut');
-      this.$router.replace('/home');
+      this.$router.replace('/mkdrinks');
     }
   },
   computed: {
