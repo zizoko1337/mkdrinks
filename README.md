@@ -2,7 +2,9 @@
 ![logo](https://user-images.githubusercontent.com/95056942/181379399-b9bb8f87-0dc3-4206-b4cb-83c22205908f.png)
 
 <h3>Discover drinks and cocktails with mkDrinks</h3>
-zizoko1337.github.io/mkdrinks/
+
+<a href="https://zizoko1337.github.io/mkdrinks/">Demo website</a>
+
 This website allows you to:
 <ul>
 <li>Search new recipes</li>
