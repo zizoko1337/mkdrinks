@@ -23,11 +23,11 @@ const router = createRouter({
         
         { path: '/', redirect: '/mkdrinks' },
         { path: '/mkdrinks', component: HomePage },
-        { path: '/mkdrinks/login', component: LogIn },
-        { path: '/mkdrinks/register', component: RegisterNewUser },
-        { path: '/mkdrinks/profile/:id', component: ProfilePage, props: true },
-        { path: '/mkdrinks/drink/:drink', component: DrinkPage, props: true },
-        { path: '/mkdrinks/:notFound(.*)', component: NotFound },
+        { path: '/login', component: LogIn },
+        { path: '/register', component: RegisterNewUser },
+        { path: '/profile/:id', component: ProfilePage, props: true },
+        { path: '/drink/:drink', component: DrinkPage, props: true },
+        { path: '/:notFound(.*)', component: NotFound },
 
         { path: '/mkdrinks/testid', component: TestId },
     ]

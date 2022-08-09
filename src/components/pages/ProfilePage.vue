@@ -12,7 +12,7 @@
                         <h3 v-if="renderedFavs[0][0] != null">Favorite drinks</h3>
                         <h3 v-else>No favorite drinks</h3>                 
                         <span v-if="renderedFavs[0][0] != null" v-for="idSet of renderedFavs" :key="idSet">
-                                <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 m-2">
+                                <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 m-2 g-3">
                                     <HomeDrinkCard :drinkId="idSet[0]"></HomeDrinkCard>
                                     <HomeDrinkCard :drinkId="idSet[1]"></HomeDrinkCard>  
                                     <HomeDrinkCard :drinkId="idSet[2]"></HomeDrinkCard>  

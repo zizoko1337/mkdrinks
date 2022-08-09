@@ -26,12 +26,12 @@
           </li>
 
             <li v-if="!isUserLogged" class="nav-item">
-              <router-link to="/mkdrinks/login">
+              <router-link to="/login">
                 <a class="nav-link active">Log in</a>
               </router-link>
             </li>
             <li v-if="!isUserLogged" class="nav-item">
-              <router-link to="/mkdrinks/register">
+              <router-link to="/register">
                 <a class="nav-link active">Register</a>
               </router-link>  
             </li>
@@ -112,10 +112,10 @@ export default {
       return this.$store.getters.userName;
     },
     profileLink() {
-      return '/mkdrinks/profile/' + this.userName;
+      return '/profile/' + this.userName;
     },
      drinkLink() {
-      return '/mkdrinks/drink/' + this.drinkName;
+      return '/drink/' + this.drinkName;
     }
   }
 };
