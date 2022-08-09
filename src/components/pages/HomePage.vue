@@ -7,10 +7,10 @@
         <p class="lead shadow-letters">Enjoy your favorite drinks</p>
         <p class="lead shadow-letters">Discover new recipes</p>
         <p>
-          <router-link to="/login">
+          <router-link to="/mkdrinks/login">
             <a class="btn btn-primary my-2 m-2">Log in</a>
           </router-link>
-          <router-link to="/register">
+          <router-link to="/mkdrinks/register">
             <a class="btn btn-primary my-2 m-2">Sign up</a>
           </router-link>
         </p>

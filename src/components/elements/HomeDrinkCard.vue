@@ -70,7 +70,7 @@ export default {
         return this.$store.getters.userFavs;
     },
     drinkLink() {
-      return '/drink/' + this.drinkName;
+      return '/mkdrinks/drink/' + this.drinkName;
     },
     isFav() {
         return Object.values(this.userFavs).includes(this.drinkId) ? true : false

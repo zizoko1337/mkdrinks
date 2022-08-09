@@ -35,7 +35,7 @@
               
               <div class="register-link">
                 <p>Not registered yet?
-                  <router-link to="/register">
+                  <router-link to="/mkdrinks/register">
                     Create new account
                   </router-link>  
                 </p>

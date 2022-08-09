@@ -20,18 +20,18 @@
       <div class="collapse navbar-collapse " id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <router-link to="/">
+            <router-link to="/mkdrinks">
               <a class="nav-link active" aria-current="page">Home</a>
             </router-link>
           </li>
 
             <li v-if="!isUserLogged" class="nav-item">
-              <router-link to="/login">
+              <router-link to="/mkdrinks/login">
                 <a class="nav-link active">Log in</a>
               </router-link>
             </li>
             <li v-if="!isUserLogged" class="nav-item">
-              <router-link to="/register">
+              <router-link to="/mkdrinks/register">
                 <a class="nav-link active">Register</a>
               </router-link>  
             </li>
@@ -112,10 +112,10 @@ export default {
       return this.$store.getters.userName;
     },
     profileLink() {
-      return '/profile/' + this.userName;
+      return '/mkdrinks/profile/' + this.userName;
     },
      drinkLink() {
-      return '/drink/' + this.drinkName;
+      return '/mkdrinks/drink/' + this.drinkName;
     }
   }
 };
