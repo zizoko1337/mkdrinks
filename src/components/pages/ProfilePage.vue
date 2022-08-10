@@ -10,8 +10,8 @@
                         </div>
                         <h1>{{ this.id }}</h1>
                         <h3 v-if="renderedFavs[0][0] != null">Favorite drinks</h3>
-                        <h3 v-else>No favorite drinks</h3>                 
-                        <span v-if="renderedFavs[0][0] != null" v-for="idSet of renderedFavs" :key="idSet">
+                        <h3 v-else>No favorite drinks</h3>              
+                        <span  v-for="idSet of renderedFavs" :key="idSet">
                                 <div class="row row-cols-1 row-cols-sm-1 row-cols-md-3 m-2 g-3">
                                     <HomeDrinkCard :drinkId="idSet[0]"></HomeDrinkCard>
                                     <HomeDrinkCard :drinkId="idSet[1]"></HomeDrinkCard>  
@@ -46,7 +46,7 @@ export default {
     methods: {
         renderFavs(){
            
-            for(var i = 1; i < this.userFavs.length; i = i + 3){
+            for(var i = 1; i < this.userFavs.length; i++){
                 /* eslint-disable */
                 while(this.userFavs[i] == null && i < this.userFavs.length){
                     i++
@@ -82,7 +82,6 @@ export default {
          
          });
          this.renderFavs();
-         console.log(this.renderedFavs)
     },
     computed: {
     isUserLogged() {
@@ -103,22 +102,4 @@ export default {
 .under-content {
     height: 200px;
 }
-
-.arrow {
-    max-width: 50px;
-    transition: 1s ease-in-out;
-}
-
-.arrow:hover {
-  animation: hithere 1s ease ;
-}
-
-@keyframes hithere {
-  30% { transform: scale(1.2); }
-  40%, 60% { transform: rotate(-20deg) scale(1.2); }
-  50% { transform: rotate(20deg) scale(1.2); }
-  70% { transform: rotate(0deg) scale(1.2); }
-  100% { transform: scale(1); }
-}
-
 </style>
