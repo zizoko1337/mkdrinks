@@ -31,4 +31,4 @@ Technologies used:
 <h4>Known issues and bugs</h4>
 Can't search drink while on a /drink/* page
 
-
+ 
