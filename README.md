@@ -3,7 +3,7 @@
 
 <h3>Discover drinks and cocktails with mkDrinks</h3>  
 
-<a href="https://zizoko1337.github.io/mkdrinks/">Demo website</a>
+<a href="https://zizoko1337.github.io/mkdrinks/">Demo website</a> 
 
 This website allows you to: 
 <ul>
