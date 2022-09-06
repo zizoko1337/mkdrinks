@@ -31,6 +31,6 @@ Technologies used:
 <h4>Known issues and bugs</h4>
 Can't search drink while on a /drink/* page
 </br>
-Home page main image is hiding on some resolutions
+Home page main image is hiding on some resolutions 
 
  
