@@ -5,7 +5,7 @@
 
 <a href="https://zizoko1337.github.io/mkdrinks/">Demo website</a> 
  
-This website allows you to: 
+This website allows you to:  
 <ul>
 <li>Search new recipes</li>
 <li>Create new account</li>
